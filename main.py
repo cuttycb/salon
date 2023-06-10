@@ -16,7 +16,8 @@ import torch
 import numpy as np
 # import torch.utils.tensorboard as tb
 import copy
-
+import torch
+import torchvision.transforms as transforms
 from runner import Diffusion
 
 
@@ -85,12 +86,13 @@ def make_parse_args():
 
 def sde_main(origin_img,stroked_img):
     args = make_parse_args()
-    config = "celeba.yml"
+    config = "content/salon/celeba.yml"
 
     try:
         runner = Diffusion(args, config, origin_img, stroked_img)
         output= runner.image_editing_sample()
-        return output[0]
+        image= transforms.ToPILImage()(output[1])
+        return image
     except Exception:
         logging.error(traceback.format_exc())
 
