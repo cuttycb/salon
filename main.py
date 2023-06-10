@@ -83,7 +83,7 @@ def make_parse_args():
 
 # In[3]:
 
-def sde_main(origin_img,stroked_img)
+def sde_main(origin_img,stroked_img):
     args = make_parse_args()
     config = "celeba.yml"
 
