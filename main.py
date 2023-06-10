@@ -83,15 +83,14 @@ def make_parse_args():
 
 # In[3]:
 
+def sde_main(origin_img,stroked_img)
+    args = make_parse_args()
+    config = "celeba.yml"
 
-args = make_parse_args()
-config = "celeba.yml"
-origin_img = input("원본 이미지 경로 입력해주세요. : ")
-stroked_img = input("수정한 이미지 경로 입력해주세요. : ")
-
-try:
-    runner = Diffusion(args, config, origin_img, stroked_img)
-    runner.image_editing_sample()
-except Exception:
-    logging.error(traceback.format_exc())
+    try:
+        runner = Diffusion(args, config, origin_img, stroked_img)
+        output= runner.image_editing_sample()
+    except Exception:
+        logging.error(traceback.format_exc())
+    return output
 
