@@ -129,3 +129,5 @@ class Diffusion:
                                            f'samples_{it}.pth'))
                 tvu.save_image((x + 1) * 0.5, os.path.join(self.args.image_folder,
                                                            f'samples_{it}.png'))
+            x=(x+1)*0.5
+            return x
