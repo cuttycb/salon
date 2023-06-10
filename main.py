@@ -90,7 +90,7 @@ def sde_main(origin_img,stroked_img):
     try:
         runner = Diffusion(args, config, origin_img, stroked_img)
         output= runner.image_editing_sample()
+        return output[0]
     except Exception:
         logging.error(traceback.format_exc())
-    return output
 
